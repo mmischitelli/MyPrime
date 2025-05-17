@@ -64,7 +64,11 @@ jobs:
         mkdir -p dist
         # Copia il binario nella cartella dist
         if [ "${{ matrix.os }}" == "windows-latest" ]; then
-          cp ${{ steps.strings.outputs.build-output-dir }}/${{ matrix.build_type }}/my_prime${{ matrix.binary_extension }} dist/${{ matrix.artifact_name }}-${{ steps.strings.outputs.version }}${{ matrix.binary_extension }}
+          # Replace backslashes with forward slashes in the path
+          BUILD_PATH="${{ steps.strings.outputs.build-output-dir }}/${{ matrix.build_type }}/my_prime${{ matrix.binary_extension }}"
+          BUILD_PATH="${BUILD_PATH//\\//}"
+          DEST_PATH="dist/${{ matrix.artifact_name }}-${{ steps.strings.outputs.version }}${{ matrix.binary_extension }}"
+          cp "$BUILD_PATH" "$DEST_PATH"
         else
           cp ${{ steps.strings.outputs.build-output-dir }}/my_prime${{ matrix.binary_extension }} dist/${{ matrix.artifact_name }}-${{ steps.strings.outputs.version }}${{ matrix.binary_extension }}
         fi
