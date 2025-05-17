@@ -86,6 +86,8 @@ jobs:
     runs-on: ubuntu-latest
     # Esegui solo quando viene spinto un tag
     if: startsWith(github.ref, 'refs/tags/v')
+    permissions:
+      contents: write
     
     steps:
       - name: Download All Artifacts
