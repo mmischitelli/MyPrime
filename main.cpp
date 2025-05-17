@@ -10,6 +10,7 @@
 #include <condition_variable>
 #include <iomanip>
 #include <algorithm>
+#include <numbers>
 
 // Flag per il controllo della terminazione
 std::atomic<bool> g_running{true};
@@ -37,7 +38,7 @@ void fft(std::vector<std::complex<double>>& x) {
 
     // Combina
     for (size_t k = 0; k < N/2; k++) {
-        std::complex<double> t = std::polar(1.0, -2 * M_PI * k / N) * odd[k];
+        std::complex<double> t = std::polar(1.0, -2 * std::numbers::pi * k / N) * odd[k];
         x[k] = even[k] + t;
         x[k + N/2] = even[k] - t;
     }
