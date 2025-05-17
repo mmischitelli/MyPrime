@@ -1,5 +1,7 @@
 # Test di Stress CPU
 
+[![CMake on multiple platforms](https://github.com/mmischitelli/MyPrime/actions/workflows/cmake-multi-platform.yml/badge.svg)](https://github.com/mmischitelli/MyPrime/actions/workflows/cmake-multi-platform.yml)
+
 Questo programma simula un test di stress per CPU simile a Prime95 con l'opzione "small FFT". È progettato per eseguire calcoli intensivi su un numero specificato di core utilizzando l'algoritmo FFT (Fast Fourier Transform).
 
 ## Caratteristiche
