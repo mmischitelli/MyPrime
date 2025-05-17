@@ -64,9 +64,9 @@ jobs:
         mkdir -p dist
         # Copia il binario nella cartella dist
         if [ "${{ matrix.os }}" == "windows-latest" ]; then
-          cp ${{ steps.strings.outputs.build-output-dir }}/${{ matrix.build_type }}/MyPrime${{ matrix.binary_extension }} dist/${{ matrix.artifact_name }}-${{ steps.strings.outputs.version }}${{ matrix.binary_extension }}
+          cp ${{ steps.strings.outputs.build-output-dir }}/${{ matrix.build_type }}/my_prime${{ matrix.binary_extension }} dist/${{ matrix.artifact_name }}-${{ steps.strings.outputs.version }}${{ matrix.binary_extension }}
         else
-          cp ${{ steps.strings.outputs.build-output-dir }}/MyPrime${{ matrix.binary_extension }} dist/${{ matrix.artifact_name }}-${{ steps.strings.outputs.version }}${{ matrix.binary_extension }}
+          cp ${{ steps.strings.outputs.build-output-dir }}/my_prime${{ matrix.binary_extension }} dist/${{ matrix.artifact_name }}-${{ steps.strings.outputs.version }}${{ matrix.binary_extension }}
         fi
         
     - name: Upload Artifacts for Release
